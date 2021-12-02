@@ -1,32 +1,59 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 public class ShootHook : MonoBehaviour
 {
+    public GameObject plasticSoup;
+    public GameObject itemHolder;
+    public GameObject item;
 
-    public GameObject itemHoalder;
-    string currentItem;
+    public static string currentItem;
+    public static float trashWeight;
 
+    public Item itemScript;
+    
+    public AudioSource audioSource;
+    public AudioClip hit;
+    public AudioClip brokeHook;
+
+    bool brokenHook;
+    bool playeBrokenSound;
 
     public List<GameObject> trash = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(AimScript.thrown == false)
+       
+        if (AimScript.tooHeavy == true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if(playeBrokenSound == false)
             {
-                currentItem = "";
+                audioSource.PlayOneShot(brokeHook);
+                playeBrokenSound = true;
             }
+            
+
+            trash.Remove(item);
+            item.transform.parent = plasticSoup.transform;
+            item.GetComponent<Collider2D>().enabled = true;
+            brokenHook = true;
+
         }
-        print(currentItem);
+        else
+        {
+            brokenHook = false;
+            playeBrokenSound = false;
+        }
+
+
+
+
 
         if (trash.Count == GameManager.trashCapacity)
         {
@@ -43,36 +70,30 @@ public class ShootHook : MonoBehaviour
     {
         
       
-        if (collision.tag == "Plastic")
+        if (collision.tag == "Plastic" || collision.tag == "Fish")
         {
-            
-            if (GameManager.capacityReached != true)
+           
+            if (GameManager.capacityReached != true && brokenHook == false)
             {
-                currentItem = collision.gameObject.GetComponent<Item>().trashType;
-                collision.gameObject.transform.parent = itemHoalder.transform;
-                trash.Add(collision.gameObject);
+                
+                item = collision.gameObject;
+                currentItem = item.gameObject.GetComponent<Item>().trashType;
+                itemScript = item.gameObject.GetComponent<Item>();
+                item.gameObject.GetComponent<Collider2D>().enabled = false;
+                item.gameObject.GetComponent<Item>().catched = true;
+                item.gameObject.transform.parent = itemHolder.transform;
+                trash.Add(item.gameObject);
+                audioSource.PlayOneShot(hit);
+                if (itemScript.weight >= trashWeight || trashWeight == 0)
+                {
+                    trashWeight = itemScript.weight;
+                }
+               
             }
            
+
         }
         
-        switch (currentItem)
-        {
-            case "Box":
-
-                AimScript.returnSpeed = 0.5f;
-
-                break;
-
-            case "Bottle":
-
-                AimScript.returnSpeed = 2f;
-
-                break;
-            case "":
-
-                AimScript.returnSpeed = 2.5f;
-
-                break;
-        }
+        
     }
 }

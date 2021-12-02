@@ -1,99 +1,149 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class AimScript : MonoBehaviour
 {
 
     public float throwSpeed;
-    public static float returnSpeed = 2.5f;
+    public static float returnSpeed;
+    float drag;
 
-    float counterThrow;
-    float counterReturn;
+    public GameObject CmVcam;
+    public GameObject raft;
 
+    public static bool tooHeavy;
 
-    public GameObject toolPrefab;
-    public Transform handPosition;
+    public Transform hookPosition;
 
     public static bool thrown;
+    bool notEnoughRope;
+
+    public static float ropeLength;
+
+
+    Rigidbody2D rb;
+
 
     Vector2 startPos;
     Vector2 endPos;
-   
 
+    public AudioClip throwHook;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        audioSource.GetComponent<AudioSource>();
+
+        ropeLength = GameManager.ropeLength;
+        drag = GameManager.Strength - ShootHook.trashWeight;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rotateHand();
+       
+        throwSpeed = GameManager.Strength;
+        
+        if (Input.GetKeyDown(KeyCode.Space) && thrown == true)
+        {
+            ropeLength = 0;
+        }
+      
+
         shoot();
-
-
+        rotateHook();
     }
 
-    void rotateHand()
+    void rotateHook()
     {
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion roatation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, roatation, 2 * Time.deltaTime);
-       
+        if(thrown == false)
+        {
+            if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y <= -1.2f)
+            {
+                Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                Quaternion roatation = Quaternion.AngleAxis(Mathf.Clamp(angle, -160.5f, -10.5f), Vector3.forward);
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, roatation, 1);
+            }
+        }
+  
     }
 
     void shoot()
     {
+        print(drag);
 
-       
-        if (Input.GetMouseButtonDown(0) && thrown == false)
+        drag = GameManager.Strength - ShootHook.trashWeight;
+
+
+        tooHeavy = drag < 0.4f;
+   
+
+        if (tooHeavy == false)
         {
-            thrown = true;
-            endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            startPos = toolPrefab.transform.position;
-        }
-        if(thrown == true)
-        {
-
-            Vector2 mousePosition = endPos - (Vector2)toolPrefab.transform.position;
-            float angle = Mathf.Atan2(mousePosition.y, mousePosition.x) * Mathf.Rad2Deg;
-            toolPrefab.transform.rotation = Quaternion.Euler(0, 0, angle + 300);
-
-            if (counterThrow >= 1)
-            {
-               
-                counterReturn += Time.deltaTime * returnSpeed;
-                toolPrefab.transform.position = Vector2.Lerp(endPos, startPos, counterReturn);
-              
-                if(counterReturn >= 1)
-                {
-                    thrown = false;
-                    counterReturn = 0f;
-                    counterThrow = 0f;
-                }
-
-            }
-            else
-            {
-                counterThrow += Time.deltaTime * throwSpeed;
-                toolPrefab.transform.position = Vector2.Lerp(startPos, endPos, counterThrow);
-
-              
-
-            }
-           
+            returnSpeed = drag; 
         }
         else
         {
-            toolPrefab.transform.position = handPosition.position;
-            toolPrefab.transform.rotation = handPosition.rotation;
+            returnSpeed = GameManager.Strength;
+            ropeLength = 0;
         }
-      
         
+
+
+        if (Input.GetMouseButtonDown(0) && thrown == false && SellTrash.inShop == false && GameManager.gamePaused == false)
+        {
+
+            audioSource.PlayOneShot(throwHook);
+            CmVcam.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
+            ShootHook.currentItem = "";
+           
+            endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            startPos = transform.position;
+            thrown = true;
+        }
+
+        if (thrown == true && notEnoughRope == false)
+        {
+
+           
+            rb.velocity = transform.right * throwSpeed;
+           
+            if ((startPos - (Vector2)transform.position).magnitude >= ropeLength)
+            {
+                notEnoughRope = true;
+                rb.velocity = endPos.normalized * throwSpeed * 0;
+            }
+        }
+       
+        if(notEnoughRope == true)
+        {
+            rb.velocity = transform.right * -returnSpeed;
+            if (Mathf.Abs(transform.position.y - startPos.y) <= 0.1f)
+            {
+                CmVcam.GetComponent<CinemachineVirtualCamera>().Follow = raft.transform;
+
+                notEnoughRope = false;
+                ShootHook.trashWeight = 0;
+
+                thrown = false;
+                ShootHook.currentItem = "";
+                ropeLength = GameManager.ropeLength;
+            }
+        }
+
+        if (thrown == false)
+        {
+            transform.position = hookPosition.position;
+        }
+
+
+      
     }
 
    

@@ -2,21 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SellTrash : MonoBehaviour
 {
+    public GameObject shop;
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    public static bool inShop;
+    bool nearShop;
+
+    AudioSource audioSource;
+
+    public GameObject pressEText;
+
+  
+
+    private void Update()
     {
-        if(collision.gameObject.tag == "Raft")
+        if(nearShop == true)
         {
+            if (Input.GetKeyDown(KeyCode.E) && inShop == false && GameManager.gamePaused == false)
+            {
+                inShop = true;
+                shop.SetActive(true);
+            }
+            else if(Input.GetKeyDown(KeyCode.E) && inShop == true && GameManager.gamePaused == false)
+            {
+                inShop = false;
+                shop.SetActive(false);
+            }
+        }
+       
+    }
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Raft" && AimScript.thrown == false)
+        {
+            pressEText.SetActive(true);
+            nearShop = true;
+
+
             for (int i = 0; i < FindObjectOfType<ShootHook>().trash.Count; i++)
             {
                 GameManager.money += FindObjectOfType<ShootHook>().trash[i].gameObject.GetComponent<Item>().moneyTogive;
                 Destroy(FindObjectOfType<ShootHook>().trash[i]);
-                
+
             }
+            if (FindObjectOfType<ShootHook>().trash.Count > 0)
+            {
+                audioSource.Play();
+            }
+
             FindObjectOfType<ShootHook>().trash.Clear();
 
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Raft")
+        {
+            pressEText.SetActive(false);
+
+            inShop = false;
+            shop.SetActive(false);
+            nearShop = false;
         }
     }
 }

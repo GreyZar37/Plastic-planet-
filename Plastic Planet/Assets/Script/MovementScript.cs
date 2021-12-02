@@ -14,6 +14,7 @@ public class MovementScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = GameManager.boatSpeed;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -25,16 +26,16 @@ public class MovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(AimScript.thrown == true)
-        {
-            speed = 0;
-        }
-        else
-        {
-            speed = 2;
-        }
-            rb.velocity = new Vector2(horizontal * speed, rb.position.y);
-        
-        
+         if(AimScript.thrown == true)
+          {
+              speed = 0;
+          }
+          else
+          {
+            speed = GameManager.boatSpeed;
+          }
+
+        rb.velocity = new Vector2(horizontal * speed, rb.position.y);
+
     }
 }

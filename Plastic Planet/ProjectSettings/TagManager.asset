@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Plastic
   - Raft
+  - Fish
+  - Hook
   layers:
   - Default
   - TransparentFX
