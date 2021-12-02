@@ -65,7 +65,7 @@ public class MenuManager : MonoBehaviour
 
         for (int i = 0; i < menues.Length; i++)
         {
-            if (menues[i].requireNearShop && !SellTrash.nearShop || !menues[i].requireNearShop && SellTrash.nearShop)
+            if (menues[i].requireNearShop && !SellTrash.nearShop)
             {
                 continue;
             }
