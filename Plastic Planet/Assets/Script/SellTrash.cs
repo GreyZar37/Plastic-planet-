@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class SellTrash : MonoBehaviour
 {
-    public GameObject shop;
+  
     
     public static bool inShop;
-    bool nearShop;
+    public static bool nearShop;
 
     AudioSource audioSource;
 
@@ -18,20 +18,7 @@ public class SellTrash : MonoBehaviour
 
     private void Update()
     {
-        if(nearShop == true)
-        {
-            if (Input.GetKeyDown(KeyCode.E) && inShop == false && GameManager.gamePaused == false)
-            {
-                inShop = true;
-                shop.SetActive(true);
-            }
-            else if(Input.GetKeyDown(KeyCode.E) && inShop == true && GameManager.gamePaused == false)
-            {
-                inShop = false;
-                shop.SetActive(false);
-            }
-        }
-       
+
     }
     private void Start()
     {
@@ -66,9 +53,7 @@ public class SellTrash : MonoBehaviour
         if (collision.gameObject.tag == "Raft")
         {
             pressEText.SetActive(false);
-
             inShop = false;
-            shop.SetActive(false);
             nearShop = false;
         }
     }

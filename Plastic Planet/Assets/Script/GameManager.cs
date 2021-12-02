@@ -15,10 +15,8 @@ public class GameManager : MonoBehaviour
     public static bool gamePaused;
 
     public static int TrashCount;
-    
 
-    public GameObject optionMenu;
-    public GameObject tutorialMenu;
+    
 
     [Header("Stats")] 
     public static float boatSpeed = 1.5f;
@@ -48,34 +46,7 @@ public class GameManager : MonoBehaviour
         {
             GameManager.money += 100;
         }
-        //saveData();
-
-        if (Input.GetKeyDown(KeyCode.Escape) && optionMenu.activeInHierarchy == false && tutorialMenu.activeInHierarchy == false && SellTrash.inShop == false)
-        {
-            optionMenu.SetActive(true);
-            Time.timeScale = 0;
-            gamePaused = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && optionMenu.activeInHierarchy == true)
-        {
-            optionMenu.SetActive(false);
-            Time.timeScale = 1;
-            gamePaused = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.H) && tutorialMenu.activeInHierarchy == false && optionMenu.activeInHierarchy == false && SellTrash.inShop == false)
-        {
-            tutorialMenu.SetActive(true);
-            Time.timeScale = 0;
-            gamePaused = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.H) && tutorialMenu.activeInHierarchy == true)
-        {
-            tutorialMenu.SetActive(false);
-            Time.timeScale = 1;
-            gamePaused = false;
-        }
-
+        //saveData();      
 
 
         TrashCountText.text = "Capacity: " + TrashCount.ToString() + "/" + trashCapacity.ToString();
@@ -130,4 +101,6 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
     }
+
+  
 }

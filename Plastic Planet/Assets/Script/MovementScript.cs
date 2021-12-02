@@ -28,13 +28,14 @@ public class MovementScript : MonoBehaviour
     {
          if(AimScript.thrown == true)
           {
-              speed = 0;
+             speed = 0;
+
           }
           else
           {
             speed = GameManager.boatSpeed;
-          }
-
+        }
+        
         rb.velocity = new Vector2(horizontal * speed, rb.position.y);
 
     }

@@ -32,6 +32,8 @@ public class AimScript : MonoBehaviour
     public AudioClip throwHook;
     public AudioSource audioSource;
 
+    LineRenderer lineRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,12 +42,15 @@ public class AimScript : MonoBehaviour
 
         ropeLength = GameManager.ropeLength;
         drag = GameManager.Strength - ShootHook.trashWeight;
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, hookPosition.position);
+
         throwSpeed = GameManager.Strength;
         
         if (Input.GetKeyDown(KeyCode.Space) && thrown == true)
@@ -98,7 +103,7 @@ public class AimScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && thrown == false && SellTrash.inShop == false && GameManager.gamePaused == false)
         {
-
+            lineRenderer.enabled = true;
             audioSource.PlayOneShot(throwHook);
             CmVcam.GetComponent<CinemachineVirtualCamera>().Follow = gameObject.transform;
             ShootHook.currentItem = "";
@@ -108,10 +113,12 @@ public class AimScript : MonoBehaviour
             thrown = true;
         }
 
+
+
         if (thrown == true && notEnoughRope == false)
         {
 
-           
+
             rb.velocity = transform.right * throwSpeed;
            
             if ((startPos - (Vector2)transform.position).magnitude >= ropeLength)
@@ -123,11 +130,11 @@ public class AimScript : MonoBehaviour
        
         if(notEnoughRope == true)
         {
-            rb.velocity = transform.right * -returnSpeed;
+            rb.velocity = -transform.right * returnSpeed;
             if (Mathf.Abs(transform.position.y - startPos.y) <= 0.1f)
             {
                 CmVcam.GetComponent<CinemachineVirtualCamera>().Follow = raft.transform;
-
+                lineRenderer.enabled = false;
                 notEnoughRope = false;
                 ShootHook.trashWeight = 0;
 
