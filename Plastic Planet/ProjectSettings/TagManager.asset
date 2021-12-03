@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BigItem
+    uniqueID: 2517063697
+    locked: 0
+  - name: MediumItem
+    uniqueID: 4122627187
+    locked: 0
+  - name: SmallItem
+    uniqueID: 781009099
+    locked: 0

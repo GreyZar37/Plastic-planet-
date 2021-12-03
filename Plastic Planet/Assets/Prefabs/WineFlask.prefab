@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 8664997895132364673}
   - component: {fileID: 8664997895132364672}
   - component: {fileID: 7238192074885693080}
+  - component: {fileID: -5404862872865624119}
   m_Layer: 0
   m_Name: WineFlask
   m_TagString: Plastic
@@ -267,6 +268,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &-5404862872865624119
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8664997895132364687}
+  m_Enabled: 1
+  m_SortingLayerID: 781009099
+  m_SortingLayer: 3
+  m_SortingOrder: 0
 --- !u!1 &8667806890337131189
 GameObject:
   m_ObjectHideFlags: 0

@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 5029888913710894502}
   - component: {fileID: 5029888913710894503}
   - component: {fileID: 1845242431857063720}
+  - component: {fileID: 3691209492065066767}
   m_Layer: 0
   m_Name: Washing Machine
   m_TagString: Plastic
@@ -351,6 +352,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &3691209492065066767
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029888913710894501}
+  m_Enabled: 1
+  m_SortingLayerID: -1777903599
+  m_SortingLayer: 1
+  m_SortingOrder: -1
 --- !u!1 &6356839477499635485
 GameObject:
   m_ObjectHideFlags: 0

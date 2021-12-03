@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 5586949783368376940}
   - component: {fileID: 5586949783368376941}
   - component: {fileID: 1287618672518928610}
+  - component: {fileID: -7719502949955709555}
   m_Layer: 0
   m_Name: OilBarrel
   m_TagString: Plastic
@@ -268,6 +269,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &-7719502949955709555
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586949783368376943}
+  m_Enabled: 1
+  m_SortingLayerID: -172340109
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &6542622224721537658
 GameObject:
   m_ObjectHideFlags: 0

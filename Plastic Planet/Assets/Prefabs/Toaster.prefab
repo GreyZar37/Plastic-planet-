@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7077256739774647011}
   - component: {fileID: 7077256739774647010}
   - component: {fileID: 7077256739774647005}
+  - component: {fileID: 8506258016889862840}
   m_Layer: 0
   m_Name: Toaster
   m_TagString: Plastic
@@ -103,6 +104,17 @@ MonoBehaviour:
   catched: 0
   maxSpeed: 0.75
   minSpeed: 0.4
+--- !u!210 &8506258016889862840
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077256739774647007}
+  m_Enabled: 1
+  m_SortingLayerID: -172340109
+  m_SortingLayer: 2
+  m_SortingOrder: 2
 --- !u!1 &7077256739866203814
 GameObject:
   m_ObjectHideFlags: 0

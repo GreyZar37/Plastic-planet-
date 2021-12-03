@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7330093464660270536}
   - component: {fileID: 7330093464660270537}
   - component: {fileID: 4174808598943393606}
+  - component: {fileID: -7792501956933052897}
   m_Layer: 0
   m_Name: Can
   m_TagString: Plastic
@@ -186,6 +187,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &-7792501956933052897
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330093464660270539}
+  m_Enabled: 1
+  m_SortingLayerID: 781009099
+  m_SortingLayer: 3
+  m_SortingOrder: 2
 --- !u!1 &7770148307452501481
 GameObject:
   m_ObjectHideFlags: 0
