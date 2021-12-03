@@ -10,7 +10,8 @@ public class SellTrash : MonoBehaviour
     public static bool inShop;
     public static bool nearShop;
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
+    public AudioClip coins;
 
     public GameObject pressEText;
 
@@ -20,10 +21,7 @@ public class SellTrash : MonoBehaviour
     {
 
     }
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+  
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -41,7 +39,7 @@ public class SellTrash : MonoBehaviour
             }
             if (FindObjectOfType<ShootHook>().trash.Count > 0)
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(coins);
             }
 
             FindObjectOfType<ShootHook>().trash.Clear();

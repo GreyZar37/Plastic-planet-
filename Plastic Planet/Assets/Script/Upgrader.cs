@@ -36,6 +36,7 @@ public class Upgrader : MonoBehaviour
     public TextMeshProUGUI capacityTxt_;
 
     public AudioSource audioSource;
+    public AudioClip buySound;
 
 
     [Header("Upgrade Visuals")]
@@ -54,7 +55,6 @@ public class Upgrader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
      
     }
 
@@ -94,7 +94,7 @@ public class Upgrader : MonoBehaviour
             }
 
             speedAdded += 1;
-            audioSource.Play();
+            audioSource.PlayOneShot(buySound);
         }
     }
     public void upgradeRopeLength()
@@ -115,7 +115,7 @@ public class Upgrader : MonoBehaviour
             }
 
             lengthAdded += 1;
-            audioSource.Play();
+            audioSource.PlayOneShot(buySound);
         }
     }
     public void upgradeStrength()
@@ -134,10 +134,8 @@ public class Upgrader : MonoBehaviour
             {
                 strengthPrice *= multipierTwo;
             }
+            audioSource.PlayOneShot(buySound);
 
-          
-
-            audioSource.Play();
         }
     }
     public void upgradeCapacity()
@@ -156,8 +154,8 @@ public class Upgrader : MonoBehaviour
             {
                capacityPrice *= multipierTwo;
             }
+            audioSource.PlayOneShot(buySound);
 
-            audioSource.Play();
         }
     }
     public void changeVisual()
