@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class ShootHook : MonoBehaviour
 {
+    public GameManager gameManager;
+
     public GameObject plasticSoup;
     public GameObject itemHolder;
     public GameObject item;
@@ -55,15 +57,15 @@ public class ShootHook : MonoBehaviour
 
 
 
-        if (trash.Count == GameManager.trashCapacity)
+        if (trash.Count == gameManager.trashCapacity)
         {
-            GameManager.capacityReached = true;
+            gameManager.capacityReached = true;
         }
         else
         {
-            GameManager.capacityReached = false;
+            gameManager.capacityReached = false;
         }
-        GameManager.TrashCount = trash.Count;
+        gameManager.TrashCount = trash.Count;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -73,7 +75,7 @@ public class ShootHook : MonoBehaviour
         if (collision.tag == "Plastic" || collision.tag == "Fish")
         {
            
-            if (GameManager.capacityReached != true && brokenHook == false)
+            if (gameManager.capacityReached != true && brokenHook == false)
             {
                 
                 item = collision.gameObject;

@@ -5,6 +5,9 @@ using TMPro;
 
 public class Upgrader : MonoBehaviour
 {
+
+    public GameManager gameManager;
+
     public float speedUpgradePrice = 0.2f;
     public float strengthPrice = 0.3f;
     public float ropeLengthPrice = 0.1f;
@@ -78,11 +81,11 @@ public class Upgrader : MonoBehaviour
 
     public void upgradeSpeed()
     {
-        if(GameManager.money >= speedUpgradePrice)
+        if(gameManager.money >= speedUpgradePrice)
         {
-            
-            GameManager.boatSpeed += speedAdd;
-            GameManager.money -= speedUpgradePrice;
+
+            gameManager.boatSpeed += speedAdd;
+            gameManager.money -= speedUpgradePrice;
            
             if (speedAdded <= highMultiplier)
             {
@@ -99,11 +102,11 @@ public class Upgrader : MonoBehaviour
     }
     public void upgradeRopeLength()
     {
-        if (GameManager.money >= ropeLengthPrice)
+        if (gameManager.money >= ropeLengthPrice)
         {
-            AimScript.ropeLength = GameManager.ropeLength;
-            GameManager.ropeLength += lengthAdd;
-            GameManager.money -= ropeLengthPrice;
+            AimScript.ropeLength = gameManager.ropeLength;
+            gameManager.ropeLength += lengthAdd;
+            gameManager.money -= ropeLengthPrice;
             
             if(lengthAdded <= highMultiplier)
             {
@@ -120,11 +123,11 @@ public class Upgrader : MonoBehaviour
     }
     public void upgradeStrength()
     {
-        if (GameManager.money >= strengthPrice)
+        if (gameManager.money >= strengthPrice)
         {
             strengthAdded += 1;
-            GameManager.Strength += strengthAdd;
-            GameManager.money -= strengthPrice;
+            gameManager.Strength += strengthAdd;
+            gameManager.money -= strengthPrice;
 
             if (strengthAdded <= highMultiplier)
             {
@@ -140,11 +143,11 @@ public class Upgrader : MonoBehaviour
     }
     public void upgradeCapacity()
     {
-        if (GameManager.money >= capacityPrice)
+        if (gameManager.money >= capacityPrice)
         {
             capacityAdded += 1;
-            GameManager.trashCapacity += capacityAdd;
-            GameManager.money -= capacityPrice;
+            gameManager.trashCapacity += capacityAdd;
+            gameManager.money -= capacityPrice;
            
             if (capacityAdded <= highMultiplier)
             {

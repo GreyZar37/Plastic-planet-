@@ -9,6 +9,6 @@ public class MenuItem
 
    public GameObject menu;
 
-    public bool requireNearShop;
+   public bool requireNearShop;
 
 }

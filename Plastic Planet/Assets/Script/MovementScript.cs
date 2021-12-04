@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
-
+    public GameManager gameManager;
     Rigidbody2D rb;
 
     float horizontal;
@@ -14,7 +14,7 @@ public class MovementScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = GameManager.boatSpeed;
+        speed = gameManager.boatSpeed;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -33,7 +33,7 @@ public class MovementScript : MonoBehaviour
           }
           else
           {
-            speed = GameManager.boatSpeed;
+            speed = gameManager.boatSpeed;
         }
         
         rb.velocity = new Vector2(horizontal * speed, rb.position.y);

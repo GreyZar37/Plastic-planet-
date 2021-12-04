@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    public GameManager gameManager;
 
     public MenuItem[] menues;
     public AudioSource audioSource;
@@ -33,14 +34,14 @@ public class MenuManager : MonoBehaviour
         {
             closeMenues();
             Time.timeScale = 0;
-            GameManager.gamePaused = true;
+            gameManager.gamePaused = true;
             audioSource.PlayOneShot(bookOpen);
         }
         else
         {
 
             Time.timeScale = 1;
-            GameManager.gamePaused = false;
+            gameManager.gamePaused = false;
             audioSource.PlayOneShot(bookClose);
         }
 
@@ -63,7 +64,7 @@ public class MenuManager : MonoBehaviour
         {
             closeMenues();
             Time.timeScale = 1;
-            GameManager.gamePaused = false;
+            gameManager.gamePaused = false;
             return;
         }
 

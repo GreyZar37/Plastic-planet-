@@ -5,6 +5,7 @@ using Cinemachine;
 
 public class AimScript : MonoBehaviour
 {
+    public GameManager gameManager;
 
     public float throwSpeed;
     public static float returnSpeed;
@@ -40,8 +41,8 @@ public class AimScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         audioSource.GetComponent<AudioSource>();
 
-        ropeLength = GameManager.ropeLength;
-        drag = GameManager.Strength - ShootHook.trashWeight;
+        ropeLength = gameManager.ropeLength;
+        drag = gameManager.Strength - ShootHook.trashWeight;
         lineRenderer = GetComponent<LineRenderer>();
     }
 
@@ -51,7 +52,7 @@ public class AimScript : MonoBehaviour
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, hookPosition.position);
 
-        throwSpeed = GameManager.Strength;
+        throwSpeed = gameManager.Strength;
         
         if (Input.GetKeyDown(KeyCode.Space) && thrown == true)
         {
@@ -83,7 +84,7 @@ public class AimScript : MonoBehaviour
     {
         print(drag);
 
-        drag = GameManager.Strength - ShootHook.trashWeight;
+        drag = gameManager.Strength - ShootHook.trashWeight;
 
 
         tooHeavy = drag < 0.4f;
@@ -95,13 +96,13 @@ public class AimScript : MonoBehaviour
         }
         else
         {
-            returnSpeed = GameManager.Strength;
+            returnSpeed = gameManager.Strength;
             ropeLength = 0;
         }
         
 
 
-        if (Input.GetMouseButtonDown(0) && thrown == false && SellTrash.inShop == false && GameManager.gamePaused == false)
+        if (Input.GetMouseButtonDown(0) && thrown == false && SellTrash.inShop == false && gameManager.gamePaused == false)
         {
             lineRenderer.enabled = true;
             audioSource.PlayOneShot(throwHook);
@@ -140,7 +141,7 @@ public class AimScript : MonoBehaviour
 
                 thrown = false;
                 ShootHook.currentItem = "";
-                ropeLength = GameManager.ropeLength;
+                ropeLength = gameManager.ropeLength;
             }
         }
 
