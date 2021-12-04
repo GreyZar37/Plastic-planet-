@@ -4355,6 +4355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfa97b4b8cdcf0478287c307f679979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1745368960}
   speedUpgradePrice: 0.2
   strengthPrice: 0.3
   ropeLengthPrice: 0.1
@@ -4700,6 +4701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc26ba6dded8eb49a87b39d2749ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1745368960}
   throwSpeed: 2
   CmVcam: {fileID: 792774863}
   raft: {fileID: 568476088}
@@ -10894,6 +10896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ee4be4ba805a7478bd17cb7d228547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1745368960}
   speed: 2
 --- !u!61 &568476092
 BoxCollider2D:
@@ -14103,6 +14106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346a4785a6a9ba2409361ca93d9bac2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1745368960}
   plasticSoup: {fileID: 337126793}
   itemHolder: {fileID: 162057340}
   item: {fileID: 0}
@@ -41003,6 +41007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9878ba37db73d749b1cf575da423aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1745368960}
   audioSource: {fileID: 1656069498}
   coins: {fileID: 8300000, guid: 4b58717840776f34395d8f1da00455a4, type: 3}
   pressEText: {fileID: 96856581}
@@ -42242,9 +42247,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgraderScript: {fileID: 196308197}
+  playerPosition: {fileID: 568476090}
   TrashCountText: {fileID: 900650438}
   moneyText: {fileID: 136224214}
   moneyText_: {fileID: 1037590449}
+  capacityReached: 0
+  gamePaused: 0
+  TrashCount: 0
+  boatSpeed: 1.5
+  Strength: 1.5
+  ropeLength: 2
+  trashCapacity: 1
+  money: 0
 --- !u!4 &1745368961
 Transform:
   m_ObjectHideFlags: 0
@@ -42274,6 +42288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d9fb88f4bcc234abb8f06d6ddabf1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1745368960}
   menues:
   - key: 27
     menu: {fileID: 1775752460}

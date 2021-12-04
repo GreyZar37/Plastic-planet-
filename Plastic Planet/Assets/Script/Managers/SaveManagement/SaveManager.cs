@@ -11,12 +11,12 @@ public static class SaveManager
         string path = Application.persistentDataPath + "/player.SavaData";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(gameManager);
+        GameData data = new GameData(gameManager);
         formatter.Serialize(stream, data);
         stream.Close();
     }
 
-    public static PlayerData LoadData()
+    public static GameData LoadData()
     {
         string path = Application.persistentDataPath + "/player.SavaData";
         if (File.Exists(path))
@@ -24,7 +24,7 @@ public static class SaveManager
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            GameData data = formatter.Deserialize(stream) as GameData;
             stream.Close();
             return data;
 

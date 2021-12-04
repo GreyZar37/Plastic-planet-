@@ -44,11 +44,23 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            SaveData();
+           
+            if (Application.version != "0.3.0")
+            {
+                Debug.LogError("Not a compatible version (Version needded 0.3.0)");
+            }
+            else
+            {
+                Debug.Log("Data saved");
+                SaveData();
+
+            }
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
             LoadData();
+
+
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -83,7 +95,9 @@ public class GameManager : MonoBehaviour
     }
    public void LoadData()
     {
-        PlayerData data = SaveManager.LoadData();
+        GameData data = SaveManager.LoadData();
+
+        // Player Data
         boatSpeed = data.boatSpeed;
         Strength = data.Strength;
         ropeLength = data.ropeLength;
@@ -94,8 +108,21 @@ public class GameManager : MonoBehaviour
         position.x = data.playerPosition[0];
         position.y = data.playerPosition[1];
         playerPosition.position = position;
-    }
-    
 
-  
+        // Shop Data
+        upgraderScript.speedUpgradePrice = data.speedUpgradePrice;
+        upgraderScript.strengthPrice = data.strengthPrice;
+        upgraderScript.ropeLengthPrice = data.ropeLengthPrice;
+        upgraderScript.capacityPrice = data.capacityPrice;
+
+        upgraderScript.speedAdded = data.speedAdded;
+        upgraderScript.strengthAdded = data.strengthAdded;
+        upgraderScript.lengthAdded = data.lengthAdded;
+        upgraderScript.capacityAdded = data.capacityAdded;
+
+
+    }
+
+
+
 }
