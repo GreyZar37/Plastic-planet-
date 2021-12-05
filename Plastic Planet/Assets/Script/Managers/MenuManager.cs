@@ -79,7 +79,7 @@ public class MenuManager : MonoBehaviour
             if (Input.GetKeyDown(menues[i].key))
             {
                 toogle(menues[i].menu);
-                print(menues[i].key);
+              
             }
 
         }

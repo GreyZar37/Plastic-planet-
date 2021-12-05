@@ -64,7 +64,6 @@ public class Upgrader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        changeVisual();
 
 
         speedUpgradeTxt.text = "Boat Speed +1" + " Upgrade " + "(" + speedUpgradePrice.ToString("F2") + "€" + ")";
@@ -163,53 +162,64 @@ public class Upgrader : MonoBehaviour
     }
     public void changeVisual()
     {
-        switch (speedAdded)
+        if(speedAdded < 5)
         {
-            case 5:
-                lvlFiveSpeed.SetActive(true);
-              
-                break;
-
-            case 10:
-                lvlOneSpeed.SetActive(false);
-                lvlTenSpeed.SetActive(true);
-                break;
-
-            default:
-                break;
+             lvlOneSpeed.SetActive(true);
+             lvlFiveSpeed.SetActive(false);
+             lvlTenSpeed.SetActive(false);
+        }
+        else if (speedAdded >= 5 && speedAdded < 10)
+        {
+            lvlFiveSpeed.SetActive(true);
+            lvlTenSpeed.SetActive(false);
+        }
+        else if ( speedAdded >= 10)
+        {
+            lvlOneSpeed.SetActive(false);
+            lvlFiveSpeed.SetActive(true);
+            lvlTenSpeed.SetActive(true);
         }
 
-        switch (strengthAdded)
+        if (strengthAdded < 5)
         {
-            case 5:
-                lvlFiveStandHook.SetActive(true);
-                lvlOneStandHook.SetActive(false);
-                break;
-
-            case 10:
-                lvlFiveStandHook.SetActive(false);
-                lvlTenStandHook.SetActive(true);
-                break;
-
-            default:
-                break;
-
-              
+            lvlOneStandHook.SetActive(true);
+            lvlFiveStandHook.SetActive(false);
+            lvlTenStandHook.SetActive(false);
         }
-        switch (lengthAdded)
+        else if (strengthAdded >= 5 && strengthAdded < 10)
         {
-            case 5:
-                lvlFiveHook.SetActive(true);
-                lvlOneHook.SetActive(false);
-                break;
-
-            case 10:
-                lvlFiveHook.SetActive(false);
-                lvlTenHook.SetActive(true);
-                break;
-
-            default:
-                break;
+            lvlFiveStandHook.SetActive(true);
+            lvlOneStandHook.SetActive(false);
+            lvlTenStandHook.SetActive(false);
         }
+        else if (strengthAdded >= 10)
+        {
+            lvlOneStandHook.SetActive(false);
+            lvlFiveStandHook.SetActive(false);
+            lvlTenStandHook.SetActive(true);
+        }
+       
+        if (lengthAdded < 5)
+        {
+            lvlOneHook.SetActive(true);
+            lvlFiveHook.SetActive(false);
+            lvlTenHook.SetActive(false);
+        }
+        else if (lengthAdded >= 5 && lengthAdded < 10)
+        {
+            lvlFiveHook.SetActive(true);
+            lvlOneHook.SetActive(false);
+            lvlTenHook.SetActive(false);
+        }
+        else if (lengthAdded >= 10)
+        {
+            lvlOneHook.SetActive(false);
+            lvlFiveHook.SetActive(false);
+            lvlTenHook.SetActive(true);
+        }
+
+        
     }
+
+ 
 }

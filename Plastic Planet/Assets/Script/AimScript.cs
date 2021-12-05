@@ -82,7 +82,6 @@ public class AimScript : MonoBehaviour
 
     void shoot()
     {
-        print(drag);
 
         drag = gameManager.Strength - ShootHook.trashWeight;
 

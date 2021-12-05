@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static string saveSlotName;
 
     public Upgrader upgraderScript;
 
@@ -34,34 +35,21 @@ public class GameManager : MonoBehaviour
     {
         upgraderScript.GetComponent<Upgrader>();
         gamePaused = true;
+        
+        LoadData();
     }
 
 
 
     private void Update()
     {
-
+        upgraderScript.changeVisual();
 
         if (Input.GetKeyDown(KeyCode.G))
-        {
-           
-            if (Application.version != "0.3.0")
-            {
-                Debug.LogError("Not a compatible version (Version needded 0.3.0)");
-            }
-            else
-            {
-                Debug.Log("Data saved");
+        {           
                 SaveData();
-
-            }
         }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadData();
-
-
-        }
+   
         if (Input.GetKeyDown(KeyCode.T))
         {
             SaveManager.Deletedata();
@@ -91,11 +79,11 @@ public class GameManager : MonoBehaviour
 
    public void SaveData()
     {
-        SaveManager.SaveData(this);
+        SaveManager.SaveData(this, saveSlotName);
     }
    public void LoadData()
     {
-        GameData data = SaveManager.LoadData();
+        GameData data = SaveManager.LoadData(saveSlotName);
 
         // Player Data
         boatSpeed = data.boatSpeed;
