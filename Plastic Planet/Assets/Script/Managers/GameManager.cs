@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static string saveSlotName;
+    public static bool newGameSarted;
 
     public Upgrader upgraderScript;
 
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public int TrashCount;
 
-    
+    public GameObject tutorialMenu;
 
     [Header("Stats to save")] 
     public float boatSpeed = 1.5f;
@@ -36,7 +37,13 @@ public class GameManager : MonoBehaviour
         upgraderScript.GetComponent<Upgrader>();
         gamePaused = true;
         
-        LoadData();
+        if(newGameSarted == false)
+        {
+            LoadData();
+            tutorialMenu.SetActive(false);
+            gamePaused = false;
+            Time.timeScale = 1;
+        }
     }
 
 

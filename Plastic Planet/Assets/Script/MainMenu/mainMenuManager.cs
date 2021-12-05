@@ -14,25 +14,31 @@ public class mainMenuManager : MonoBehaviour
 
     public TMP_InputField saveName;
 
-    public List<string> slots = new List<string>();
+    public static List<string> slots = new List<string>();
     
-
-
     public Button[] slotButtons;
     public TextMeshProUGUI[] slotText;
 
     bool sameNameFound;
 
     int slotsAmount = 3;
-    int slotsSaved;
+
+
+
+
 
     private void Start()
     {
+
         changeSlot();
-        loadSlots();
+
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     public void quitGame()
@@ -61,7 +67,7 @@ public class mainMenuManager : MonoBehaviour
                 notEnoughSlotsTxt.SetActive(false);
                 nameUsedText.SetActive(false);
                 changeSlot();
-                saveSlots();
+                GameManager.newGameSarted = true;
                 SceneManager.LoadScene("PlayScene");
             }
             else
@@ -81,6 +87,7 @@ public class mainMenuManager : MonoBehaviour
 
     public void loadGame(int slotNumber)
     {
+        GameManager.newGameSarted = false;
         GameManager.saveSlotName = slotText[slotNumber].text;
         SceneManager.LoadScene("PlayScene");
     }
@@ -98,29 +105,7 @@ public class mainMenuManager : MonoBehaviour
             }
     }
 
-    public void saveSlots()
-    {
-        for (int i = 0; i < slots.Count; i++)
-        {
-            PlayerPrefs.SetString("Slot " + i, slots[i]);
-            slotsSaved++;
-            PlayerPrefs.SetInt("SlotsSaved ", slotsSaved);
-        }
-    }
-    public void loadSlots()
-    {
-        slotsSaved = PlayerPrefs.GetInt("SlotsSaved ", slotsSaved);
-
-        for (int i = 0; i < slotsSaved; i++)
-        {
-          
-
-            string slotName = PlayerPrefs.GetString("Slot " + i, slots[i]);
-            slots.Add(slotName);
-
-        }
-
-    }
+  
 
 
 }
