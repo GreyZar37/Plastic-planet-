@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Washing Machine
-  moneyTogive: 24
+  moneyTogive: 120
   weight: 3.5
   catched: 0
   maxSpeed: 0.4

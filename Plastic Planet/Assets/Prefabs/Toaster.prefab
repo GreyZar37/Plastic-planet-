@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Toster
-  moneyTogive: 6
+  moneyTogive: 10
   weight: 2
   catched: 0
   maxSpeed: 0.75

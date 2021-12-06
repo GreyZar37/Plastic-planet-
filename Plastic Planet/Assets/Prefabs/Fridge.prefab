@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Fridge
-  moneyTogive: 25
+  moneyTogive: 250
   weight: 4
   catched: 0
   maxSpeed: 0.75
@@ -195,9 +195,9 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4934875866277938242}
   m_Enabled: 1
-  m_SortingLayerID: -172340109
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: -1777903599
+  m_SortingLayer: 1
+  m_SortingOrder: 3
 --- !u!1 &5996813871579483223
 GameObject:
   m_ObjectHideFlags: 0

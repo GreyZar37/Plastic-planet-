@@ -19,14 +19,16 @@ public class Upgrader : MonoBehaviour
     public int capacityAdded = 0;
 
     float speedAdd = 0.25f;
-    float lengthAdd = 1.5f;
+    float lengthAdd = 3.5f;
     float strengthAdd = 0.30f;
     float capacityAdd = 1;
 
 
-    float multipierOne = 2, multipierTwo = 1.5f;
-    int highMultiplier = 5;
-    int lowMultiplier = 10;
+    float multipierOne = 2, multipierTwo = 1.25f, multipierThree = 1.10f;
+   
+    
+    int oneMultiplierLimit = 5;
+    int twoMultiplierLimit = 10;
 
     public TextMeshProUGUI speedUpgradeTxt;
     public TextMeshProUGUI strengthTxt;
@@ -86,13 +88,18 @@ public class Upgrader : MonoBehaviour
             gameManager.boatSpeed += speedAdd;
             gameManager.money -= speedUpgradePrice;
            
-            if (speedAdded <= highMultiplier)
+            if (speedAdded <= oneMultiplierLimit)
             {
                 speedUpgradePrice *= multipierOne;
             }
-            else if (speedAdded > highMultiplier)
+            else if (speedAdded > oneMultiplierLimit && speedAdded < twoMultiplierLimit)
             {
                 speedUpgradePrice *= multipierTwo;
+            }
+            else 
+            {
+                speedUpgradePrice *= multipierThree;
+                print("LOWER");
             }
 
             speedAdded += 1;
@@ -107,11 +114,11 @@ public class Upgrader : MonoBehaviour
             gameManager.ropeLength += lengthAdd;
             gameManager.money -= ropeLengthPrice;
             
-            if(lengthAdded <= highMultiplier)
+            if(lengthAdded <= oneMultiplierLimit)
             {
                 ropeLengthPrice *= multipierOne;
             }
-            else if (lengthAdded > highMultiplier)
+            else if (lengthAdded > oneMultiplierLimit)
             {
                 ropeLengthPrice *= multipierTwo;
             }
@@ -128,11 +135,11 @@ public class Upgrader : MonoBehaviour
             gameManager.Strength += strengthAdd;
             gameManager.money -= strengthPrice;
 
-            if (strengthAdded <= highMultiplier)
+            if (strengthAdded <= oneMultiplierLimit)
             {
                 strengthPrice *= multipierOne;
             }
-            else if (strengthAdded > highMultiplier)
+            else if (strengthAdded > oneMultiplierLimit)
             {
                 strengthPrice *= multipierTwo;
             }
@@ -148,11 +155,11 @@ public class Upgrader : MonoBehaviour
             gameManager.trashCapacity += capacityAdd;
             gameManager.money -= capacityPrice;
            
-            if (capacityAdded <= highMultiplier)
+            if (capacityAdded <= oneMultiplierLimit)
             {
                 capacityPrice *= multipierOne;
             }
-            else if (capacityAdded > highMultiplier)
+            else if (capacityAdded > oneMultiplierLimit)
             {
                capacityPrice *= multipierTwo;
             }

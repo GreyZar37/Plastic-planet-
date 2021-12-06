@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: OilBarrel
-  moneyTogive: 12
+  moneyTogive: 20
   weight: 2.5
   catched: 0
   maxSpeed: 0.75
