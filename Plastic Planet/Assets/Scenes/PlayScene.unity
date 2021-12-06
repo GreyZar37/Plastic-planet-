@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 22962921}
   - component: {fileID: 22962922}
   m_Layer: 0
-  m_Name: DeepLayer spawner
+  m_Name: Lvl 4 spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,14 +547,13 @@ MonoBehaviour:
   - {fileID: 5029888913710894501, guid: 4f95c0a1e88084b4186eb068ef0e8b99, type: 3}
   - {fileID: 4723949234229344606, guid: 0e13b033fc8a80c4ca869d10b3a3241e, type: 3}
   - {fileID: 5586949783368376943, guid: 0065f73f558868d4398a6095a82e208b, type: 3}
-  - {fileID: 5397263395203946648, guid: 38d6ad6a73c0cea498897e1fb6f666ba, type: 3}
   - {fileID: 7330093464660270539, guid: 27c0f6567bc7d8248b4d979c879bce51, type: 3}
   plasticSoup: {fileID: 337126793}
   yMin: -14
   yMax: -30
   xMin: -13
   xMax: -15
-  timer: 3
+  timer: 2
 --- !u!1 &23746621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4446,7 +4445,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.21
   m_LightVolumeIntensity: 0
-  m_LightVolumeIntensityEnabled: 0
+  m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 0000000011580796734cbaf5cb408d2ea5fadb3e
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
@@ -4456,9 +4455,9 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 1
-  m_ShadowIntensity: 0.044
+  m_ShadowIntensity: 0.03
   m_ShadowVolumeIntensityEnabled: 1
-  m_ShadowVolumeIntensity: 0.719
+  m_ShadowVolumeIntensity: 0.055
   m_Vertices:
   - position: {x: 0.9985302, y: 0.9985302, z: 0}
     color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
@@ -7080,6 +7079,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &377024522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 377024523}
+  - component: {fileID: 377024524}
+  m_Layer: 0
+  m_Name: Lvl 5 spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &377024523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377024522}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.75033, y: -38.9, z: 9.189507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2112517172}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &377024524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377024522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f155f7bda01864448a7ea9e93e0c66fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+  - {fileID: 4934875866277938242, guid: f111e498e6af0c94a9f4f4f590fdd300, type: 3}
+  - {fileID: 4723949234229344606, guid: 0e13b033fc8a80c4ca869d10b3a3241e, type: 3}
+  - {fileID: 8597056826068992102, guid: e6522157600b4f6409db4d408c3533f8, type: 3}
+  - {fileID: 1347790689295792334, guid: 45cc812cb5b1c4448a55c5ce4c91e22d, type: 3}
+  plasticSoup: {fileID: 337126793}
+  yMin: -30
+  yMax: -55
+  xMin: -13
+  xMax: -15
+  timer: 2
 --- !u!1 &377481684
 GameObject:
   m_ObjectHideFlags: 0
@@ -16144,7 +16197,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2112517172}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &855409356
 MonoBehaviour:
@@ -31518,6 +31571,36 @@ Transform:
   m_Father: {fileID: 1745368961}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1432736489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432736490}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1432736490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432736489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.9571476, y: -55.8, z: -50.025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1440985675
 GameObject:
   m_ObjectHideFlags: 0
@@ -40919,7 +41002,7 @@ GameObject:
   - component: {fileID: 1695933267}
   - component: {fileID: 1695933268}
   m_Layer: 0
-  m_Name: TopLayer spawner
+  m_Name: Lvl 1 spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41284,7 +41367,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2112517172}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1708810879
 MonoBehaviour:
@@ -41483,7 +41566,7 @@ GameObject:
   - component: {fileID: 1722231111}
   - component: {fileID: 1722231112}
   m_Layer: 0
-  m_Name: LowerLayer spawner
+  m_Name: Lvl 3 spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45540,7 +45623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1898547134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46113,7 +46196,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2112517172}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1937822506
 MonoBehaviour:
@@ -46353,7 +46436,7 @@ GameObject:
   - component: {fileID: 1978784799}
   - component: {fileID: 1978784800}
   m_Layer: 0
-  m_Name: MiddleTopLayer Spawner
+  m_Name: Lvl 2 Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49282,6 +49365,7 @@ Transform:
   - {fileID: 1978784799}
   - {fileID: 1722231111}
   - {fileID: 22962921}
+  - {fileID: 377024523}
   - {fileID: 855409355}
   - {fileID: 1937822505}
   - {fileID: 1708810878}
