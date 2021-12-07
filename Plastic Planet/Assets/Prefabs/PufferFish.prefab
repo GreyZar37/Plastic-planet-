@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: PufferFish
-  moneyTogive: 7.5
+  moneyTogive: 3.5
   weight: 0.3
   catched: 0
   maxSpeed: 1.4

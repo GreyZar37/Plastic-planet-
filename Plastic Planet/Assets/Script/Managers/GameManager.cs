@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
 
     public int TrashCount;
 
+    float autoSafeTimer = 5f;
+    float autoSafeCurrentTimer;
+
+
     public GameObject tutorialMenu;
 
     [Header("Stats to save")] 
@@ -50,12 +54,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        upgraderScript.changeVisual();
+        AutoSave();
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {           
-                SaveData();
-        }
+
+        upgraderScript.changeVisual();
    
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -118,6 +120,15 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void AutoSave()
+    {
+       autoSafeCurrentTimer -= Time.deltaTime;
 
+        if(autoSafeCurrentTimer <= 0)
+        {
+            SaveData();
+            autoSafeCurrentTimer = autoSafeTimer;
+        }
+    }
 
 }

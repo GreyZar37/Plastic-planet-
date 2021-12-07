@@ -24,7 +24,7 @@ public class Upgrader : MonoBehaviour
     float capacityAdd = 1;
 
 
-    float multipierOne = 2, multipierTwo = 1.25f, multipierThree = 1.10f;
+    float multipierOne = 2, multipierTwo = 1.1f, multipierThree = 1.05f;
    
     
     int oneMultiplierLimit = 5;

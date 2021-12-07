@@ -27,7 +27,7 @@ public class GameData
 
     public float[] playerPosition;
 
-    //
+    public List<string> slots = new List<string>();
 
     public GameData(GameManager gameData)
     {
@@ -54,7 +54,12 @@ public class GameData
         strengthAdded = gameData.upgraderScript.strengthAdded;
         capacityAdded = gameData.upgraderScript.capacityAdded;
 
-    }
 
+    }
+    public GameData(mainMenuManager mainMenuData)
+    {
+        //lot Data
+        slots = mainMenuData.slots;
+    }
 
 }

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
+using System;
+using System.Text;
 
 
 public class mainMenuManager : MonoBehaviour
@@ -14,7 +16,7 @@ public class mainMenuManager : MonoBehaviour
 
     public TMP_InputField saveName;
 
-    public static List<string> slots = new List<string>();
+    public List<string> slots = new List<string>();
     
     public Button[] slotButtons;
     public TextMeshProUGUI[] slotText;
@@ -29,16 +31,19 @@ public class mainMenuManager : MonoBehaviour
 
     private void Start()
     {
-
+        
+        LoadData();
         changeSlot();
 
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        for (int i = 0; i < slots.Count; i++)
         {
-            PlayerPrefs.DeleteAll();
+            print(slots[i]);
         }
+
+
     }
 
     public void quitGame()
@@ -63,10 +68,10 @@ public class mainMenuManager : MonoBehaviour
             {
                 GameManager.saveSlotName = saveName.text;
                 slots.Add(saveName.text);
-               
+                SaveData();
+
                 notEnoughSlotsTxt.SetActive(false);
                 nameUsedText.SetActive(false);
-                changeSlot();
                 GameManager.newGameSarted = true;
                 SceneManager.LoadScene("PlayScene");
             }
@@ -105,7 +110,20 @@ public class mainMenuManager : MonoBehaviour
             }
     }
 
-  
+
+    public void SaveData()
+    {
+        SaveManager.SaveMainMenuData(this);
+    }
+    public void LoadData()
+    {
+        GameData data = SaveManager.LoadMainMenuData();
+        slots = data.slots;
+       
+    }
+
+
+
 
 
 }

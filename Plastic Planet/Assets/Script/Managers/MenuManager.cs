@@ -27,7 +27,7 @@ public class MenuManager : MonoBehaviour
 
     public void toogle(GameObject menu)
     {
-
+        gameManager.SaveData();
         bool open = !menu.activeSelf;
 
         if (open)

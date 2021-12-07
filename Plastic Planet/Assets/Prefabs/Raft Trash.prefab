@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: playerBoatLvlOne
-  moneyTogive: 500
+  moneyTogive: 75
   weight: 5
   catched: 0
   maxSpeed: 0.75
@@ -914,7 +914,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.103173256, y: -0.16232291}
+  m_Offset: {x: 0.11541009, y: 0.113015324}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -925,7 +925,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1993303, y: 0.83782226}
+  m_Size: {x: 4.0769515, y: 0.2871458}
   m_EdgeRadius: 0
 --- !u!50 &3863217844800419967
 Rigidbody2D:

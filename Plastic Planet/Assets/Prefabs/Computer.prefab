@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Computer
-  moneyTogive: 60
+  moneyTogive: 30
   weight: 1.2
   catched: 0
   maxSpeed: 0.85
