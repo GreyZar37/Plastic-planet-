@@ -19,14 +19,13 @@ public class mainMenuManager : MonoBehaviour
     public List<string> slots = new List<string>();
     
     public Button[] slotButtons;
+    public GameObject[] deleteButtons;
+
     public TextMeshProUGUI[] slotText;
 
     bool sameNameFound;
 
     int slotsAmount = 3;
-
-
-
 
 
     private void Start()
@@ -50,6 +49,16 @@ public class mainMenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void deleteGame(int slotNum)
+    {
+        SaveManager.Deletedata_(slots[slotNum]);
+        slotText[slotNum].text = "Slot " + (slotNum + 1);
+        slots.RemoveAt(slotNum);
+        slotButtons[slotNum].interactable = false;
+        SaveData();
+    }
+
     public void NewGame()
     {
 
@@ -106,6 +115,7 @@ public class mainMenuManager : MonoBehaviour
                 {
                     slotText[i].text = slots[i];
                     slotButtons[i].interactable = true;
+                deleteButtons[i].SetActive(true);
                 }
             }
     }

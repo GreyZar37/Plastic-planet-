@@ -59,10 +59,8 @@ public class GameManager : MonoBehaviour
 
         upgraderScript.changeVisual();
    
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SaveManager.Deletedata();
-        }
+      
+     
 
 
         if (Input.GetKeyDown(KeyCode.M))

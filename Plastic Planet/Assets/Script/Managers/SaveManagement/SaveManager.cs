@@ -81,11 +81,6 @@ public static class SaveManager
     }
 
 
-
-    public static void Deletedata()
-    {
-        string[] filePaths = Directory.GetFiles(Application.persistentDataPath); foreach (string filePath in filePaths) File.Delete(filePath);
-    }
     public static void Deletedata_(string slotName)
     {
         string filePath = (Application.persistentDataPath + "/player.SavaData " + slotName);
