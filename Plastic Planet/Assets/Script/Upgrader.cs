@@ -67,7 +67,6 @@ public class Upgrader : MonoBehaviour
     void Update()
     {
 
-
         speedUpgradeTxt.text = "Boat Speed +1" + " Upgrade " + "(" + speedUpgradePrice.ToString("F2") + "€" + ")";
         strengthTxt.text = "Strength +1" + " Upgrade " + "(" + strengthPrice.ToString("F2") + "€" + ")";
         ropeLengthTxt.text = "Rope Length +1" + " Upgrade " + "(" + ropeLengthPrice.ToString("F2") + "€" + ")";
@@ -82,12 +81,13 @@ public class Upgrader : MonoBehaviour
 
     public void upgradeSpeed()
     {
-        if(gameManager.money >= speedUpgradePrice)
+
+        if (gameManager.money >= speedUpgradePrice)
         {
 
             gameManager.boatSpeed += speedAdd;
             gameManager.money -= speedUpgradePrice;
-           
+
             if (speedAdded <= oneMultiplierLimit)
             {
                 speedUpgradePrice *= multipierOne;
@@ -96,14 +96,15 @@ public class Upgrader : MonoBehaviour
             {
                 speedUpgradePrice *= multipierTwo;
             }
-            else 
+            else
             {
                 speedUpgradePrice *= multipierThree;
-                print("LOWER");
+
             }
 
             speedAdded += 1;
             audioSource.PlayOneShot(buySound);
+
         }
     }
     public void upgradeRopeLength()
@@ -228,5 +229,6 @@ public class Upgrader : MonoBehaviour
         
     }
 
+    
  
 }

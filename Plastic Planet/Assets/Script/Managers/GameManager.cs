@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        AutoSave();
+        //AutoSave();
 
 
         upgraderScript.changeVisual();

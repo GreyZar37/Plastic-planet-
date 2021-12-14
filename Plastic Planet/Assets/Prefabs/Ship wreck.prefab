@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Ship Wreck
-  moneyTogive: 150
+  moneyTogive: 100
   weight: 7
   catched: 0
   maxSpeed: 0.3

@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Fridge
-  moneyTogive: 40
+  moneyTogive: 35
   weight: 4
   catched: 0
   maxSpeed: 0.75
