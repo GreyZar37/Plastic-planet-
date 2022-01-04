@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Fish
-  moneyTogive: 1.5
+  moneyToGive: 1.25
   weight: 0.4
   catched: 0
   maxSpeed: 1.9

@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Turtle
-  moneyTogive: 15
+  moneyToGive: 7.5
   weight: 1
   catched: 0
   maxSpeed: 1.25

@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Box
-  moneyTogive: 1.5
+  moneyToGive: 2.18
   weight: 1.25
   catched: 0
   maxSpeed: 0.6

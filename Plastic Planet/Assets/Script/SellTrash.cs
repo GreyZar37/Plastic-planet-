@@ -34,7 +34,7 @@ public class SellTrash : MonoBehaviour
 
             for (int i = 0; i < FindObjectOfType<ShootHook>().trash.Count; i++)
             {
-                gameManager.money += FindObjectOfType<ShootHook>().trash[i].gameObject.GetComponent<Item>().moneyTogive;
+                gameManager.money += FindObjectOfType<ShootHook>().trash[i].gameObject.GetComponent<Item>().moneyToGive;
                 Destroy(FindObjectOfType<ShootHook>().trash[i]);
 
             }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public string trashType;
-    public float moneyTogive;
+    public float moneyToGive;
     public float weight;
 
     public bool catched;
