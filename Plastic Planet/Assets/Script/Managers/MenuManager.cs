@@ -60,6 +60,7 @@ public class MenuManager : MonoBehaviour
 
     void handleMenuChanges()
     {
+        gameManager.SaveData();
         if (Input.GetKeyDown(KeyCode.Escape) && anyMenuOpen())
         {
             closeMenues();
@@ -88,6 +89,7 @@ public class MenuManager : MonoBehaviour
     }
     bool anyMenuOpen()
     {
+        gameManager.SaveData();
         for (int i = 0; i < menues.Length; i++)
         {
             if (menues[i].menu.activeSelf)

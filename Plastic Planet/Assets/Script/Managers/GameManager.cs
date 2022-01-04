@@ -40,14 +40,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       
-
         upgraderScript.GetComponent<Upgrader>();
         gamePaused = true;
         
         if(newGameSarted == false)
         {
             LoadData();
+            dayAndNightScript.time = time;
             tutorialMenu.SetActive(false);
             gamePaused = false;
             Time.timeScale = 1;
@@ -59,13 +58,9 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         time = dayAndNightScript.time;
-        //AutoSave();
+        AutoSave();
 
         upgraderScript.changeVisual();
-   
-      
-     
-
 
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -119,7 +114,8 @@ public class GameManager : MonoBehaviour
         upgraderScript.lengthAdded = data.lengthAdded;
         upgraderScript.capacityAdded = data.capacityAdded;
 
-
+        //Other data 
+        time = data.time;
     }
 
     public void AutoSave()

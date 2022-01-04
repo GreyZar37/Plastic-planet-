@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Chest
-  moneyTogive: 350
+  moneyToGive: 120
   weight: 0.6
   catched: 0
   maxSpeed: 0

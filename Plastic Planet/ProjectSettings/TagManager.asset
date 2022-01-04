@@ -54,6 +54,9 @@ TagManager:
   - name: SmallItem
     uniqueID: 781009099
     locked: 0
+  - name: Sand
+    uniqueID: 1691338883
+    locked: 0
   - name: Water
     uniqueID: 1054603941
     locked: 0

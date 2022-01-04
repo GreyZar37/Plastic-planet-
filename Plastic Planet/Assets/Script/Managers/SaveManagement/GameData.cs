@@ -18,7 +18,7 @@ public class GameData
 
 
 
-    //Plater Data
+    //Player Data
     public float boatSpeed;
     public float Strength;
     public float ropeLength;
@@ -28,6 +28,9 @@ public class GameData
     public float[] playerPosition;
 
     public List<string> slots = new List<string>();
+
+    //Other Data
+    public float time;
 
     public GameData(GameManager gameData)
     {
@@ -54,7 +57,8 @@ public class GameData
         strengthAdded = gameData.upgraderScript.strengthAdded;
         capacityAdded = gameData.upgraderScript.capacityAdded;
 
-
+        // Other Data
+        time = gameData.time;
     }
     public GameData(mainMenuManager mainMenuData)
     {
