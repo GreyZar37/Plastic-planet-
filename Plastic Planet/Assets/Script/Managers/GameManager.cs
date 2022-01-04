@@ -34,10 +34,14 @@ public class GameManager : MonoBehaviour
     public float trashCapacity = 1;
     public float money;
 
-  
+    [Header("WorldTime")]
+    public DayAndNight dayAndNightScript;
+    public float time;
 
     private void Start()
     {
+       
+
         upgraderScript.GetComponent<Upgrader>();
         gamePaused = true;
         
@@ -54,8 +58,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        time = dayAndNightScript.time;
         //AutoSave();
-
 
         upgraderScript.changeVisual();
    

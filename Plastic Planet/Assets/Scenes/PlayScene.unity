@@ -44787,6 +44787,8 @@ MonoBehaviour:
   ropeLength: 2
   trashCapacity: 1
   money: 0
+  dayAndNightScript: {fileID: 1745368965}
+  time: 0
 --- !u!4 &1745368961
 Transform:
   m_ObjectHideFlags: 0
@@ -44880,7 +44882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98b053e6a3ba794c82a4b7a2c67764a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  day: 0
   sun: {fileID: 198027831}
+  time: 1.2
   dayTime: 1.2
   nightTime: 0.5
   ChangeDay: 0.2
