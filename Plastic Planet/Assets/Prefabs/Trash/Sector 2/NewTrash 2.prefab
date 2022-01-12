@@ -157,11 +157,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: Box
-  moneyToGive: 0
-  weight: 1.25
+  moneyToGive: 184.21
+  weight: 7.5
   catched: 0
-  maxSpeed: 0.6
-  minSpeed: 0.4
+  maxSpeed: 0.3
+  minSpeed: 0.2
 --- !u!50 &3105441692187638507
 Rigidbody2D:
   serializedVersion: 4
