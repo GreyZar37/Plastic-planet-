@@ -62,10 +62,7 @@ public class GameManager : MonoBehaviour
 
         upgraderScript.changeVisual();
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            money += 100;
-        }
+      
       
 
 
